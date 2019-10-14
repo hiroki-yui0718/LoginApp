@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8" />
+<title>Top Page</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      th:href="@{/webjars/bootstrap/4.1.1/css/bootstrap.min.css}" rel="stylesheet" />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+        th:src="@{/webjars/bootstrap/4.1.1/js/bootstrap.min.js}"></script>
+ </head>
+ <body>
+<div th:include="header :: data"></div>
+<div class="container">
+ <p th:text="#{content.message}"></p>
+<div class="row">
+<div class="col-md-6 offset-md-3">
+<form method="post" action="/user" th:objetc="${formModel}">
+<label for="name">Name</label>
+<input type="text" class="form-control" name="name" th:value="*{name}">
+<label for="mail">Mail</label>
+<input type="text" class="form-control" name="mail" th:value="*{mail}">
+<label for="password">Password</label>
+<input type="password" class="form-control" name="password" th:value="*{password}">
+<input type="submit" class="mt-3 btn btn-primary btn-block">
+</form>
+</div>
+</div>
+</div>
+</body>
+</html>
